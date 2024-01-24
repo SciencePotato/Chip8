@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <unistd.h>
 
 typedef unsigned char BYTE;
 typedef unsigned short int WORD;
@@ -13,6 +15,17 @@ class Chip {
             this -> pc = (char) 0x200;
             this -> delayTimer = 0;
             this -> sounderTimer = 0;
+
+            // Window showing
+            window.setMaximumWidth(640);
+            window.setMaximumHeight(320);
+            window.setWindowTitle("Chip 8 Emulator");
+            window.show();
+            window.displayP = &display;
+            display[0] = 1;
+            display[50] = 1;
+
+            window.update();
         }
 
         void execute() {
@@ -39,7 +52,8 @@ class Chip {
         }
 
     private:
-        // 4KB 
+        MainWindow window;
+        // 4KB
         char memory[4096] = {0};
         char v[16] = {0};
         char I;
@@ -52,8 +66,8 @@ class Chip {
         int sounderTimer;
 
         std::byte keys[16] = {};
-        // Scale this up | otherwise you can't see shit 
-        std::byte display[64 * 32] = {};
+        std::vector<int> display = std::vector<int>(64 * 32, 0);;
+        // Scale this up | otherwise you can't see shit
         /*
             BYTE m_GameMemory[0xFFF] ; // 0xFFF bytes of memory
             BYTE m_Registers[16] ; // 16 registers, 1 byte each
