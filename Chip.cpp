@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <unistd.h>
 
 typedef unsigned char BYTE;
 typedef unsigned short int WORD;
@@ -51,19 +50,32 @@ class Chip {
             }
         }
 
+        void loadProgram(const std::string& src) {
+
+        }
+
+        bool needsRedraw() {
+            // TODO
+            return false;
+        }
+
+        void removeDrawFlag() {
+
+        }
+
     private:
         MainWindow window;
         // 4KB
         char memory[4096] = {0};
         char v[16] = {0};
-        char I;
-        char pc;
+        char I{};
+        char pc{};
         
         char chipStack[16] = {0};
-        int stackPtr;
+        int stackPtr{};
 
-        int delayTimer;
-        int sounderTimer;
+        int delayTimer{};
+        int sounderTimer{};
 
         std::byte keys[16] = {};
         std::vector<int> display = std::vector<int>(64 * 32, 0);;

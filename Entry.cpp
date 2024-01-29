@@ -1,10 +1,23 @@
-#include <iostream>
 #include "mainwindow.h"
 #include <QApplication>
+#include <thread>
 #include "Chip.cpp"
 
 using namespace std;
 
+class Main {
+    Main() {
+
+    }
+
+    ~Main() = default;
+
+    void run() {
+        while (true) {
+
+        }
+    }
+};
 
 int main(int argc, char *argv[]) {
 
