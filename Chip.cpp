@@ -15,7 +15,7 @@ class Chip {
             this -> delayTimer = 0;
             this -> sounderTimer = 0;
 
-            // Window showing
+            // Show the emulator window.
             window.setMaximumWidth(640);
             window.setMaximumHeight(320);
             window.setWindowTitle("Chip 8 Emulator");
@@ -79,7 +79,7 @@ class Chip {
 
         std::byte keys[16] = {};
         std::vector<int> display = std::vector<int>(64 * 32, 0);;
-        // Scale this up | otherwise you can't see shit
+        // Scale up the display so it is easier to see.
         /*
             BYTE m_GameMemory[0xFFF] ; // 0xFFF bytes of memory
             BYTE m_Registers[16] ; // 16 registers, 1 byte each
