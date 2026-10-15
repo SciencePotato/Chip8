@@ -1,10 +1,10 @@
 # Chip 8 Emulator
 
 ## Chip 8 Hardware
-Memory of 0xFFF bytes
-16 8-Bit data registers, called V0 to VF. VF doubles as the carry flag
-16 Bit address register I which is used to access memory
-16 Bit program counter and a stack
+- 0xFFF bytes of memory
+- 16 8-bit data registers, named V0 through VF. VF doubles as the carry flag.
+- A 16-bit address register, I, used to access memory
+- A 16-bit program counter and a stack
 
 ## Helpful resources
 http://www.codeslinger.co.uk/pages/projects/chip8/hardware.html
