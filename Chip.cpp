@@ -11,7 +11,7 @@ class Chip {
         void init() {
             this -> stackPtr = 0;
             this -> I = 0x0;
-            this -> pc = (char) 0x200;
+            this -> pc = 0x200;
             this -> delayTimer = 0;
             this -> sounderTimer = 0;
 
@@ -29,7 +29,7 @@ class Chip {
 
         void execute() {
             // Fetch opcode 
-            char opcode = memory[pc] << 8 | memory[pc + 1];
+            WORD opcode = static_cast<WORD>(memory[pc]) << 8 | memory[pc + 1];
             // Decode 
             switch (opcode & 0xF000) {
                 case 0x8000: // Contains more data in last bit
@@ -66,10 +66,10 @@ class Chip {
     private:
         MainWindow window;
         // 4KB
-        char memory[4096] = {0};
+        BYTE memory[4096] = {0};
         char v[16] = {0};
         char I{};
-        char pc{};
+        WORD pc{};
         
         char chipStack[16] = {0};
         int stackPtr{};
