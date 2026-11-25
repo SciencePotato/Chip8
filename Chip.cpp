@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 typedef unsigned char BYTE;
 typedef unsigned short int WORD;
@@ -39,14 +40,14 @@ class Chip {
                             break;
                         default:        
                             std::cout << "Unsupported opcode: " << opcode;
-                            exit(0);
+                            std::exit(EXIT_FAILURE);
                             break;
                     }
 
                     break;
                 default:
                     std::cout << "Unsupported opcode: " << opcode;
-                    exit(0);
+                    std::exit(EXIT_FAILURE);
             }
         }
 
