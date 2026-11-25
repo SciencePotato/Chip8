@@ -1,5 +1,10 @@
 # Chip 8 Emulator
 
+Unsupported opcode diagnostics terminate with a failure status, not success.
+Run `python3 tests/unsupported_opcode.py` with a C++17 compiler to check the
+actual cold-memory rejection path. Only the window is doubled; this is not a
+Qt rendering test and does not complete the loader or instruction handlers.
+
 ## Chip 8 Hardware
 Memory of 0xFFF bytes
 16 8-Bit data registers, called V0 to VF. VF doubles as the carry flag
